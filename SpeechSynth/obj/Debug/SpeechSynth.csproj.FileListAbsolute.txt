@@ -1,0 +1,8 @@
+D:\C# Programs\Personal\SpeechSynth\SpeechSynth\bin\Debug\SpeechSynth.exe.config
+D:\C# Programs\Personal\SpeechSynth\SpeechSynth\bin\Debug\SpeechSynth.exe
+D:\C# Programs\Personal\SpeechSynth\SpeechSynth\bin\Debug\SpeechSynth.pdb
+D:\C# Programs\Personal\SpeechSynth\SpeechSynth\obj\Debug\SpeechSynth.exe
+D:\C# Programs\Personal\SpeechSynth\SpeechSynth\obj\Debug\SpeechSynth.pdb
+C:\Programming\Git_Stuff\SpeechSynth\SpeechSynth\bin\Debug\SpeechSynth.exe.config
+C:\Programming\Git_Stuff\SpeechSynth\SpeechSynth\obj\Debug\SpeechSynth.exe
+C:\Programming\Git_Stuff\SpeechSynth\SpeechSynth\obj\Debug\SpeechSynth.pdb
