@@ -1,69 +1,67 @@
 ﻿using System;
-using System.Data;
 using static System.Console;
 using System.Speech.Synthesis;
+using System.IO;
 
 namespace SpeechSynth {
 
   class Program {
     static void Main(string[] args) {
+      Menu();
+
       #region
 
       ////trying to understand the SpeechSynthesizer Class and methods
-      
 
-      var userInput = string.Empty;
-      var synth = new SpeechSynthesizer();
-      while (userInput != "exit") {
-        WriteLine("what would you like me to say?      ---'exit' to quit---");
-        WriteLine("");
-        userInput = ReadLine();
+      //var userInput = string.Empty;
+      //var synth = new SpeechSynthesizer();
+      //while (userInput != "exit") {
+      //  WriteLine("what would you like me to say?      ---'exit' to quit---");
+      //  WriteLine("");
+      //  userInput = ReadLine();
 
-        synth.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult);
-        synth.Speak(userInput);
+      //  synth.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult);
+      //  synth.Speak(userInput);
+      //}
+
+      #endregion
+
+
+    }
+
+    static void Menu() {
+      WriteLine("What is your name?");
+      var name = ReadLine();
+      WriteLine("What is your gender? (male/female)");
+      var gender = ReadLine();
+      WriteLine("What is your Date of Birth?");
+      var dob = Convert.ToDateTime(ReadLine());
+
+      var person = new Person(Convert.ToString(name), Convert.ToString(gender), Convert.ToDateTime(dob));
+      var result = person.GetType().GetProperties();
+
+      var readFile = new StreamReader(@"C:\TFTF\SpeechSynth.txt");
+
+      var fileContents = readFile.ReadToEnd();
+
+      readFile.Close();
+
+      if (!fileContents.Equals(string.Empty)) {
 
       }
 
-      #endregion
+      File.WriteAllText(@"C:\TFTF\SpeechSynth.txt", string.Empty);
 
-      //example code pulled down from tutorial
+      var writeFile = new StreamWriter(@"C:\TFTF\SpeechSynth.txt");
 
-      #region
+      foreach (var item in result) {
 
-      //// Initialize a new instance of the SpeechSynthesizer.
-      //using (var synth = new SpeechSynthesizer()) {
+      writeFile.WriteLine(item.Name);
+    }
 
-      //  // Output information about all of the installed voices. 
-      //  Console.WriteLine("Installed voices -");
-      //  foreach (var voice in synth.GetInstalledVoices()) {
-      //    var info = voice.VoiceInfo;
-      //    var AudioFormats = "";
-      //    foreach (var fmt in info.SupportedAudioFormats)
-      //      AudioFormats += string.Format("{0}\n",
-      //        fmt.EncodingFormat);
+    writeFile.Close();
 
-      //    Console.WriteLine(" Name:          " + info.Name);
-      //    Console.WriteLine(" Culture:       " + info.Culture);
-      //    Console.WriteLine(" Age:           " + info.Age);
-      //    Console.WriteLine(" Gender:        " + info.Gender);
-      //    Console.WriteLine(" Description:   " + info.Description);
-      //    Console.WriteLine(" ID:            " + info.Id);
-      //    Console.WriteLine(" Enabled:       " + voice.Enabled);
-      //    if (info.SupportedAudioFormats.Count != 0) Console.WriteLine(" Audio formats: " + AudioFormats);
-      //    else Console.WriteLine(" No supported audio formats found");
-
-      //    var AdditionalInfo = "";
-      //    foreach (var key in info.AdditionalInfo.Keys) AdditionalInfo += string.Format("  {0}: {1}\n", key, info.AdditionalInfo[key]);
-
-      //    Console.WriteLine(" Additional Info - " + AdditionalInfo);
-      //    Console.WriteLine();
-      //  }
-      //}
-
-      //Console.WriteLine("Press any key to exit...");
-      //Console.ReadKey();
-
-      #endregion
+      ReadKey();
     }
   }
 }
