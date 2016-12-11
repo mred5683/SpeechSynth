@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace SpeechSynth {
   public class Person {
-    string Name { get; set; }
-    string Gender { get; set; }
-    DateTime DOB {get; set; }
+    public string Name { get; set; }
+    public string Gender { get; set; }
+    public DateTime Birthday {get; set; }
 
-    public Person(string name, string gender, DateTime dob) {
+    public Person(string name, string gender, DateTime birthday) {
       Name = name;
       Gender = gender;
-      DOB = dob;
+      Birthday = birthday;
     }
   }
 }
