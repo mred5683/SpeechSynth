@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace SpeechSynth {
   public class Person {
     public string Name { get; set; }
-    public string Gender { get; set; }
-    public DateTime Birthday {get; set; }
+    public int Age { get; set; }
+    public string CityOfBirth {get; set; }
 
-    public Person(string name, string gender, DateTime birthday) {
+    public Person(string name, int age, string cityOfBirth) {
       Name = name;
-      Gender = gender;
-      Birthday = birthday;
+      Age = age;
+      CityOfBirth = cityOfBirth;
     }
   }
 }
